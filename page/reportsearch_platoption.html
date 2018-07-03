@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Main system Reports</title>
+    <meta charset="UTF-8">
+    <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <![endif]-->
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../css/index.css" media="all" />
+    <link rel="stylesheet" href="../stylesheets/screen.css" />
+    <script src="../js/jquery-1.12.3.min.js"></script>
+    <script src="../js/myjs.js"></script>
+</head>
+
+<body>
+    <div class="moreplantbtn_out">
+        <div class="plantbox plantbox_active" id="popplantbox">
+            <ul class="plantctrl">
+                <li class="lottery_class lottery_all">全选</li>
+                <li class="lottery_class">彩票类</li>
+                <li class="lottery_class">体育类</li>
+                <li class="lottery_class">电子类</li>
+                <li class="lottery_class active">视讯类</li>
+                <li class="lottery_class">棋牌类</li>
+                <li class="ctrlbtn lottery_delete btnhover"><i class="icon-icon_pt_trashcan"></i>清空</li>
+                <li class="ctrlbtn lottery_chose btnhover"><i class="icon-checkmark"></i>完成选择</li>
+            </ul>
+            <div class="tablestyle table_plant">
+                <table id="platformoption" lay-filter="platformoption">
+                </table>
+                <script type="text/html" id="platformoptionLottery">
+                    {{# if(d.platformoptionLottery == "0"){ }}
+                    {{# }  else if( d.platformoptionLottery == "1"){ }}
+                    <i class='icon-check_circle' onclick='clicktoggletable(this)'></i>
+                    {{# }  else if( d.platformoptionLottery == "2"){ }}
+                    <i class='icon-check_circle active' onclick='clicktoggletable(this)'></i>
+                    {{# }}}
+                </script>
+                <script type="text/html" id="platformoptionVideo">
+                    {{# if(d.platformoptionVideo == "0"){ }}
+                    {{# }  else if( d.platformoptionVideo == "1"){ }}
+                    <i class='icon-check_circle' onclick='clicktoggletable(this)'></i>
+                    {{# }  else if( d.platformoptionVideo == "2"){ }}
+                    <i class='icon-check_circle active' onclick='clicktoggletable(this)'></i>
+                    {{# }}}
+                </script>
+                <script type="text/html" id="platformoptionEle">
+                    {{# if(d.platformoptionEle == "0"){ }}
+                    {{# }  else if( d.platformoptionEle == "1"){ }}
+                    <i class='icon-check_circle' onclick='clicktoggletable(this)'></i>
+                    {{# }  else if( d.platformoptionEle == "2"){ }}
+                    <i class='icon-check_circle active' onclick='clicktoggletable(this)'></i>
+                    {{# }}}
+                </script>
+                <script type="text/html" id="platformoptionSport">
+                    {{# if(d.platformoptionSport == "0"){ }}
+                    {{# }  else if( d.platformoptionSport == "1"){ }}
+                    <i class='icon-check_circle' onclick='clicktoggletable(this)'></i>
+                    {{# }  else if( d.platformoptionSport == "2"){ }}
+                    <i class='icon-check_circle active' onclick='clicktoggletable(this)'></i>
+                    {{# }}}
+                </script>
+                <script type="text/html" id="platformoptionCard">
+                    {{# if(d.platformoptionCard == "0"){ }}
+                    {{# }  else if( d.platformoptionCard == "1"){ }}
+                    <i class='icon-check_circle' onclick='clicktoggletable(this)'></i>
+                    {{# }  else if( d.platformoptionCard == "2"){ }}
+                    <i class='icon-check_circle active' onclick='clicktoggletable(this)'></i>
+                    {{# }}}
+                </script>
+                <script type="text/html" id="platformoptionThreed">
+                    {{# if(d.platformoptionThreed == "0"){ }}
+                    {{# }  else if( d.platformoptionThreed == "1"){ }}
+                    <i class='icon-check_circle' onclick='clicktoggletable(this)'></i>
+                    {{# }  else if( d.platformoptionThreed == "2"){ }}
+                    <i class='icon-check_circle active' onclick='clicktoggletable(this)'></i>
+                    {{# }}}
+                </script>
+                <script type="text/html" id="platformoptionFish">
+                    {{# if(d.platformoptionFish == "0"){ }}
+                    {{# }  else if( d.platformoptionFish == "1"){ }}
+                    <i class='icon-check_circle' onclick='clicktoggletable(this)'></i>
+                    {{# }  else if( d.platformoptionFish == "2"){ }}
+                    <i class='icon-check_circle active' onclick='clicktoggletable(this)'></i>
+                    {{# }}}
+                </script>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../layui/layui.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/cache.js"></script>
+    <script type="text/javascript" src="reportsearch.js"></script>
+    <script>
+        //platfromclick
+        function clicktoggletitle(index) {
+            if ($(index).children('i.icon-check_circle').is('.active')) {
+                $(index).children('i.icon-check_circle').parentsUntil('tbody').find('i.icon-check_circle').removeClass('active');
+            } else {
+                $(index).children('i.icon-check_circle').parentsUntil('tbody').find('i.icon-check_circle').addClass('active');
+            }
+        }
+        function clicktoggletable(index) {
+            if ($(index).is('.active')) {
+                $(index).removeClass('active');
+            } else {
+                $(index).addClass('active');
+            }
+        }
+        layui.use('table', function () {
+            var table = layui.table;
+            table.on('tool(platformoption)', function (obj) {
+                var data = obj.data;
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Main system Reports</title>
+    <meta charset="UTF-8">
+    <!--[if lt IE 9]>
+        <script src="/js/html5shiv.js"></script>
+        <![endif]-->
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../css/index.css" media="all" />
+    <link rel="stylesheet" href="../stylesheets/screen.css" />
+    <script src="../js/jquery-1.12.3.min.js"></script>
+    <script src="../js/myjs.js"></script>
+</head>
+
+<body>
+    <div class="wrapper" id="reportpage">
+        <div class="wrapper-in">
+            <div class="searchline">
+                <div class="searchplane">选择平台：
+                </div>
+                <div class="moreplantbtn_out">
+                    <div class="moreplantbtn btnhover" onclick="plantbox()">
+                        更多平台
+                    </div>
+                </div>
+            </div>
+            <div class="searchlistline">
+                <div class="gamedata_out">
+                    <select class="gamedata" name="gamedata_type">
+                        <option value="0">正式线数据</option>
+                        <option value="1">正式线数据</option>
+                    </select>
+                </div>
+                <div class="information_out">
+                    <i class="icon-icon_information"></i>
+                    <div class="information_txt">测试线仅支持查询传统彩及皇冠体育平台</div>
+                </div>
+                <div class="bigboss_out">
+                    <select class="bigboss" name="bigboss_type">
+                        <option value="all">全部</option>
+                        <option value="1">大大大股东</option>
+                        <option value="2">大大大大股东</option>
+                    </select>
+                </div>
+                <div class="inputout">
+                    <input type="text" name="lotterynumber">
+                </div>
+                <div class="lotterynumber_search">
+                    <div class="layui-inline inputout datepickerout">
+                        <div class="layui-input-inline">
+                            <input type="text" class="datepicker" id="datepicker" placeholder="请选择时间">
+                        </div>
+                        <i class="icon-icon_date"></i>
+                    </div>
+                    <div class="information_out">
+                        <i class="icon-icon_information"></i>
+                        <div class="information_txt">本平台的查询时间已与第三方同步</div>
+                    </div>
+                    <select name="lotterynumber_type">
+                        <option value="快选">快选</option>
+                        <option value="快选">快选</option>
+                    </select>
+                    <div class="searchbtn btnhover">
+                        <i class="icon-search"></i>查询
+                    </div>
+                </div>
+                <!--
+                <div class="exportout">
+                    <div class="export"><i class="icon-icon_export"></i>导出EXCEL</div>
+                    <div class="information_out"><i class="icon-icon_information"></i>
+                        <div class="information_txt information_txt_right">测试线仅支持查询传统彩及皇冠体育平台</div>
+                    </div>
+                </div>
+                -->
+            </div>
+            <div class="contentboxout">
+                <!--alert_loading-->
+                <div class="contentbox alertboxout alert_loading">
+                    <div class="alertbox">
+                        <div class="alertimg">
+                            <div class="lds-svg ng-scope">
+                                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-bar-chart">
+                                    <g transform="rotate(180 50 50)">
+                                        <rect ng-attr-x="{{config.x1}}" y="15" ng-attr-width="{{config.width}}" height="69.9721" fill="#0051a2" x="15" width="10">
+                                            <animate attributeName="height" calcMode="spline" values="50;70;30;50" keyTimes="0;0.33;0.66;1" dur="0.8" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
+                                                begin="-0.32000000000000006s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                        <rect ng-attr-x="{{config.x2}}" y="15" ng-attr-width="{{config.width}}" height="56.7644" fill="#1b75be" x="35"
+                                            width="10">
+                                            <animate attributeName="height" calcMode="spline" values="50;70;30;50" keyTimes="0;0.33;0.66;1" dur="0.8" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
+                                                begin="-0.16000000000000003s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                        <rect ng-attr-x="{{config.x3}}" y="15" ng-attr-width="{{config.width}}" height="40.386" fill="#408ee0" x="55"
+                                            width="10">
+                                            <animate attributeName="height" calcMode="spline" values="50;70;30;50" keyTimes="0;0.33;0.66;1" dur="0.8" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
+                                                begin="-0.48s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                        <rect ng-attr-x="{{config.x4}}" y="15" ng-attr-width="{{config.width}}" height="48.9533" fill="#89bff8" x="75"
+                                            width="10">
+                                            <animate attributeName="height" calcMode="spline" values="50;70;30;50" keyTimes="0;0.33;0.66;1" dur="0.8" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1"
+                                                begin="0s" repeatCount="indefinite"></animate>
+                                        </rect>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="alerttxt">
+                            数据拼命加载中，还需等待......
+                        </div>
+                    </div>
+                    <!--
+                    <div class="alertboxbtn">等你出现</div>
+                    -->
+                </div>
+                <!--alert_none-->
+                <div class="contentbox alertboxout alert_none">
+                    <div class="alertbox">
+                        <div class="alertimg">
+                            <img src="../images/waitpic_loading.png">
+                        </div>
+                        <div class="alerttxt">
+                            暂无数据
+                        </div>
+                    </div>
+                </div>
+                <!--alert_searchplan-->
+                <div class="contentbox alertboxout alert_searchplan">
+                    <div class="alertbox">
+                        <div class="alertimg">
+                            <img src="../images/waitpic_searchplan.png">
+                        </div>
+                        <div class="alerttxt">
+                            请选择您要查询的平台
+                        </div>
+                    </div>
+                </div>
+                <!--table_one-->
+                <div class="contentbox realtimepage_table tablestyle table_one">
+                    <table id="reportsearch" lay-filter="reportsearch">
+                    </table>
+                </div>
+            </div>
+            <!--
+            <div class="bottomnote">
+                页面解读：<br/>
+                注单管理仅支持单平台查询，支持模糊查询；<br/>
+                每次进入时，需先选择查询的平台；<br/>
+                可根据单平台进行全部会员/单一会员及各平台的查询条件进行查询；
+            </div>
+        -->
+        </div>
+    </div>
+    <script type="text/javascript" src="../layui/layui.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/cache.js"></script>
+    <script type="text/javascript" src="reportsearch.js"></script>
+        <script>
+            //plantbox
+            function plantbox(){
+                layer.open({
+                    type: 2,
+                    title: false,
+                    closeBtn: 0,
+                    shadeClose: true,
+                    shade: 0.8,
+                    area: ['600px', '660px'],
+                    content: 'reportsearch_platoption.html' //iframe的url
+                });
+            }
+        </script>
+</body>
+
+</html>
